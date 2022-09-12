@@ -22,7 +22,7 @@ class DBStorage:
         # Drop all tables if in test mode
         if os.getenv("HBNB_ENV") == "test":
             with DBStorage.__engine.connect() as conn:
-                for table in DBStorage.__engine.table_names():
+                for table in ['reviews', 'place_amenity', 'places', 'cities', 'states',  'amenities', 'users']:
                     conn.execute(
                         "DROP TABLE IF EXISTS {}".format(table))
 
@@ -42,8 +42,7 @@ class DBStorage:
         from models.review import Review
         objects = {}
         if cls is None:
-            # classes = [User, State, City, Amenity, Place, Review]
-            classes = [State, City]
+            classes = [City, State, Place, Amenity, Review, User]
             for clas in classes:
                 for obj in DBStorage.__session.query(clas):
                     objects["{}.{}".format(clas.__name__, obj.id)] = obj
@@ -84,10 +83,13 @@ class DBStorage:
         from models.base_model import Base, BaseModel
         from models.city import City
         from models.state import State
+        from models.user import User
+        from models.amenity import Amenity
+        from models.place import Place
+        from models.review import Review
         Base.metadata.create_all(DBStorage.__engine)
         DBStorage.__session = sessionmaker(
             bind=DBStorage.__engine, expire_on_commit=False)()
-
 
     def close(self):
         """Closes the storage engine."""
