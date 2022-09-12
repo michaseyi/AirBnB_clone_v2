@@ -22,7 +22,8 @@ class DBStorage:
         # Drop all tables if in test mode
         if os.getenv("HBNB_ENV") == "test":
             with DBStorage.__engine.connect() as conn:
-                for table in ['reviews', 'place_amenity', 'places', 'cities', 'states',  'amenities', 'users']:
+                for table in ['reviews', 'place_amenity', 'places',
+                              'cities', 'states', 'amenities', 'users']:
                     conn.execute(
                         "DROP TABLE IF EXISTS {}".format(table))
 
