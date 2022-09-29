@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 # sets up a web server for development of web_static
-
 #install nginx
 if ! command -v nginx &> /dev/null; then
     apt-get update
