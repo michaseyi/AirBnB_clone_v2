@@ -3,7 +3,7 @@
 #install nginx
 if ! command -v nginx &> /dev/null; then
     apt-get update
-    apt-get install nginx
+    apt-get install -y nginx
 fi
 
 #make necessary directories
