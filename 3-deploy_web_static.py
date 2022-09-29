@@ -84,9 +84,13 @@ def deploy():
     :return (bool): is True all operations were successful else
     False
     """
-    archive_path = do_pack()
-    if archive_path is None:
+    if deploy.archive_path is None:
+        deploy.archive_path = do_pack()
+    if deploy.archive_path is None:
         return False
-    if not do_deploy(archive_path):
+    if not do_deploy(deploy.archive_path):
         return False
     return True
+
+
+deploy.archive_path = None
