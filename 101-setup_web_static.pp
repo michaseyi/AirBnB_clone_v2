@@ -1,4 +1,4 @@
-
+#sets up a web server for deployment of web static
 $config="\
 server {
     listen 80 default_server;
