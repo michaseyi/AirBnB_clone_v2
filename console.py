@@ -14,7 +14,6 @@ from models.review import Review
 
 
 
-
 class HBNBCommand(cmd.Cmd):
     """ Contains the functionality for the HBNB console"""
 
