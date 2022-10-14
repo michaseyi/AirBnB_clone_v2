@@ -22,6 +22,9 @@ class BaseModel:
     def __init__(self, *args, **kwargs):
         """Instatntiates a new model"""
         from models import storage
+        self.id = str(uuid.uuid4())
+        self.created_at = datetime.today()
+        self.updated_at = self.created_at
         if kwargs:
             for key, val in kwargs.items():
                 if key == "__class__":
@@ -29,16 +32,21 @@ class BaseModel:
                 if key in ["created_at", "updated_at"]:
                     val = datetime.fromisoformat(val)
                 setattr(self, key, val)
+
+        """
         else:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.today()
             self.updated_at = self.created_at
             # storage.new(self)
+        """
 
     def __str__(self):
         """Returns a string representation of the instance"""
         cls = (str(type(self)).split('.')[-1]).split('\'')[0]
-        return '[{}] ({}) {}'.format(cls, self.id, self.__dict__)
+        return '[{}] ({}) {}'.format(
+            cls, self.id, {
+                k: v for k, v in self.to_dict().items() if k != '__class__'})
 
     def save(self):
         """Updates updated_at with current time when instance is changed"""

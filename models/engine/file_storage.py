@@ -65,3 +65,11 @@ class FileStorage:
         id = "{}.{}".format(obj.__class__.__name__, obj.id)
         del FileStorage.__objects[id]
         self.save()
+
+    def close(self):
+        """TODO: Docstring for close.
+
+        :returns: TODO
+
+        """
+        self.reload()
