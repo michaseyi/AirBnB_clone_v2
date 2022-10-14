@@ -33,7 +33,7 @@ def c(text):
 
     :return (str): is C <text>
     """
-    return 'C {}'.format(text)
+    return 'C {}'.format(text.replace('_', ' '))
 
 
 if __name__ == '__main__':
