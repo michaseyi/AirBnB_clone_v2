@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """This script starts a Flask web application"""
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 app.url_map.strict_slashes = False
@@ -58,6 +58,17 @@ def number(n: int):
     :return (str): is <n> is a number
     """
     return '{} is a number'.format(n)
+
+
+@app.route('/number_template/<int:n>')
+def number_template(n: int):
+    """
+    number_template is the handler for request to the /number/<int:n> route
+
+    :param n(int): path variable
+    :return (str)
+    """
+    return render_template('5-number.html', number=n)
 
 
 if __name__ == '__main__':
