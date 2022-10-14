@@ -17,13 +17,13 @@ def index():
 
 
 @app.route('/hbnb')
-def hbhb():
+def hbnb():
     """
-    hbhb is the handler for requests to the /hbnb route
+    hbnb is the handler for requests to the /hbnb route
 
     :return (str): is HBHB
     """
-    return 'HBHB'
+    return 'HBNB'
 
 
 if __name__ == '__main__':
