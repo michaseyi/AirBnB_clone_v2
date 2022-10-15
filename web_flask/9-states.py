@@ -20,6 +20,7 @@ def states():
     states.sort(key=lambda state: state.name)
     return render_template('7-states_list.html', states=states)
 
+
 @app.route('/states/<id>')
 def get_state(id):
     """
