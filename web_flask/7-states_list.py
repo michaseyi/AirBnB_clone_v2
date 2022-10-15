@@ -3,8 +3,6 @@
 from models.state import State
 from models import storage
 from flask import Flask, render_template
-import sys
-sys.path.append('..')
 
 app = Flask(__name__)
 app.url_map.strict_slashes = False
