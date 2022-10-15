@@ -9,7 +9,7 @@ app = Flask(__name__)
 app.url_map.strict_slashes = False
 
 
-@app.route('/states_list')
+@app.route('/states')
 def states_list():
     """
     states_list renders a list of available states
