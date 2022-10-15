@@ -45,6 +45,8 @@ def states(id):
     from models.state import State
     from models import storage
     state = storage.all(State).get("State.{}".format(id), None)
+    if state is not None:
+        state.cities.sort(key=lambda city: city.name)
     return render_template('9-states.html', state=state)
 
 
