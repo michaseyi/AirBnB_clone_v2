@@ -26,6 +26,7 @@ def hbnb():
     amenities = list(storage.all(Amenity).values())
     amenities.sort(key=lambda amenity: amenity.name)
     places = list(storage.all(Place).values())
+    print(places[0].user)
     return render_template(
         '100-hbnb.html',
         places=places,

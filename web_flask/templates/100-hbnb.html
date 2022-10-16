@@ -51,7 +51,7 @@
 					<article>
                         <div class="name_price_wrapper">
                             <h2>{{place.name}}</h2>
-                            <div class="price_by_night">$80</div>
+                            <div class="price_by_night">${{place.price_by_night}}</div>
                         </div>
 
 						<div class="information">
@@ -59,7 +59,7 @@
                             <div class="number_rooms">{{place.number_rooms}} Bedroom</div>
                             <div class="number_bathrooms">{{place.number_bathrooms}} Bathroom</div>
 						</div>
-						<div class="user"><b>Owner:</b> Some Person</div>
+                        <div class="user"><b>Owner:</b>{{place.user.first_name}} {{place.user.last_name}}</div>
 						<div class="description">
                             {{place.description|safe }}
 						</div>
